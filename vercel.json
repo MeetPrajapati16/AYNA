@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "AYNA/wsgi.py", "use": "@vercel/python", "config": { "runtime": "python3.9" } },
+    { "src": "build.sh", "use": "@vercel/static-build", "config": { "distDir": "staticfiles" } }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "AYNA/wsgi.py" },
+    { "src": "/static/(.*)", "dest": "/static/$1" }
+  ]
+}
